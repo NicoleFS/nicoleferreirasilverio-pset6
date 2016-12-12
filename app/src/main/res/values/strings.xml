@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">nicoleferreirasilverio-pset6</string>
+
+    <string name="go_button">Go!</string>
+
+    <string name="groceries">Grocery List</string>
+
+    <string name="saved_list">Saved Recipes</string>
+
+    <string name="enter_ingredients">Enter ingredient(s)</string>
+
+    <string name="welcome_text">Have to edit this</string>
 </resources>
