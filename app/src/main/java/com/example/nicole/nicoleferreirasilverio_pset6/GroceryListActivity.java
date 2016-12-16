@@ -22,12 +22,16 @@ public class GroceryListActivity extends AppCompatActivity {
         // maak een nieuwe ArrayList aan genaamd neededIngredients
         ArrayList<String> neededIngredients;
 
-        // vul neededIngredients met de ingredienten die nog nodig zijn en doorgegeven zijn via
-        // RecipeDetailActivity
-        neededIngredients = getIntent().getExtras().getStringArrayList("neededIngredients");
+        // check of de pagina is opgevraagd met of zonder data
+        if (getIntent().getExtras() != null) {
 
-        // vul de ListView met de benodigde ingredienten
-        this.setData(neededIngredients);
+            // vul neededIngredients met de ingredienten die nog nodig zijn en doorgegeven zijn via
+            // RecipeDetailActivity
+            neededIngredients = getIntent().getExtras().getStringArrayList("neededIngredients");
+
+            // vul de ListView met de benodigde ingredienten
+            this.setData(neededIngredients);
+        }
     }
 
     public void setData(ArrayList<String> groceries){

@@ -10,4 +10,8 @@
     <string name="enter_ingredients">Enter ingredient(s)</string>
 
     <string name="welcome_text">Have to edit this</string>
+
+    <string name="explanation_details_recipe">Click on the link to visit the instructions for this
+    recipe on the original publisher\'s website. Click on the ingredients you need to add them to
+    your Grocery List</string>
 </resources>

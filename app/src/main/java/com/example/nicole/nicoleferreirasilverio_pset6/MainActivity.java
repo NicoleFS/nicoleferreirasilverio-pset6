@@ -13,8 +13,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    // initialiseer een ArrayList met receptendata
+    // initialiseer een ArrayList om receptendata in op te slaan
     ArrayList<RecipeData> foundRecipeList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

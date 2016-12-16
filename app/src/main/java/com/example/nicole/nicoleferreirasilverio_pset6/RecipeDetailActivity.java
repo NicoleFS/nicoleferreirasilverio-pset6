@@ -1,9 +1,11 @@
 package com.example.nicole.nicoleferreirasilverio_pset6;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -17,6 +19,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
     // initialiseer de ArrayLists foundIngredientList en chosenIngredients
     ArrayList<String> foundIngredientList;
     ArrayList<String> chosenIngredients = new ArrayList<>();
+    String sourceRecipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
         String titleRecipe = getIntent().getExtras().getString("recipeTitle");
 
         // haal de URL van de website waar het recept vandaan komt op uit de intent
-        String sourceRecipe = getIntent().getExtras().getString("recipeSource");
+        sourceRecipe = getIntent().getExtras().getString("recipeSource");
+
+        String image = getIntent().getExtras().getString("imageURL");
 
         // zet de titel van het recept in de juiste textview
         TextView titleText = (TextView) findViewById(R.id.recipe_title);
@@ -39,6 +44,12 @@ public class RecipeDetailActivity extends AppCompatActivity {
         // zet de URL van de bron website in de juiste textview
         TextView sourceText = (TextView) findViewById(R.id.recipe_source);
         sourceText.setText(sourceRecipe);
+
+        //
+        WebView web = (WebView) findViewById(R.id.recipe_image);
+        web.getSettings().setLoadWithOverviewMode(true);
+        web.getSettings().setUseWideViewPort(true);
+        web.loadUrl(image);
 
         // voer de tweede AsyncTask uit met de juiste parameters
         DetailsAsyncTask AsyncTask = new DetailsAsyncTask(this);
@@ -81,6 +92,12 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         // ga naar de volgende activity
         startActivity(goToFilledGroceryList);
+    }
+
+    public void goToUrl (View view) {
+        Uri uriUrl = Uri.parse(sourceRecipe);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 
 
