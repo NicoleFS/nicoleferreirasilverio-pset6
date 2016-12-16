@@ -34,11 +34,6 @@ public class DetailsAsyncTask extends AsyncTask<String, Integer, String> {
         this.context = this.activity.getApplicationContext();
     }
 
-    // onPreExecute()
-    protected void onPreExecute(){
-        Toast.makeText(context, "Getting data from server", Toast.LENGTH_LONG).show();
-    }
-
     // doInBackGround()
     protected String doInBackground(String... params){
         return HttpRequestIngredients.downloadFromServer(params);

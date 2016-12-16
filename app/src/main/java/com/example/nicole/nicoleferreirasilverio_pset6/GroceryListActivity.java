@@ -23,16 +23,14 @@ import java.util.Objects;
 
 public class GroceryListActivity extends AppCompatActivity {
 
-    // initialise an ArrayList called groceryIngredients
+    // initialise an ArrayList called groceryIngredients and neededIngredients
     ArrayList<String> groceryIngredients;
+    ArrayList<String> neededIngredients = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery_list);
-
-        // create a new ArrayList called neededIngredients
-        ArrayList<String> neededIngredients;
 
         // check if the page is requested with or without extra data
         if (getIntent().getExtras() != null) {
@@ -40,9 +38,10 @@ public class GroceryListActivity extends AppCompatActivity {
             // fill neededIngredients with the ingredients that were sent via RecipeDetailActivity
             neededIngredients = getIntent().getExtras().getStringArrayList("neededIngredients");
 
-            // fill the ListView with the ingredients from neededIngredient
-            this.setData(neededIngredients);
         }
+
+        // fill the ListView with the ingredients from neededIngredient
+        this.setData(neededIngredients);
     }
 
     // method to fill the ListView with ingredients

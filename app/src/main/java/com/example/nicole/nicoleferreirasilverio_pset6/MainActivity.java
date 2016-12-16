@@ -41,8 +41,13 @@ public class MainActivity extends AppCompatActivity {
         // execute the AsyncTask with the right context and user input, given in the EditText
         EditText searchRecipe = (EditText) findViewById(R.id.editText);
         String userInput = searchRecipe.getText().toString();
-        RecipeAsyncTask asyncTask = new RecipeAsyncTask(this);
-        asyncTask.execute(userInput);
+        if (userInput.length() != 0) {
+            RecipeAsyncTask asyncTask = new RecipeAsyncTask(this);
+            asyncTask.execute(userInput);
+        } else {
+            Toast.makeText(MainActivity.this, "You should enter an ingredient",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     // method to fill the ListView with data

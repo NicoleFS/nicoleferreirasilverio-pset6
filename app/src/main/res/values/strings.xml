@@ -3,15 +3,22 @@
 
     <string name="go_button">Go!</string>
 
-    <string name="groceries">Grocery List</string>
-
-    <string name="saved_list">Saved Recipes</string>
+    <string name="grocery_list">Your Grocery List</string>
 
     <string name="enter_ingredients">Enter ingredient(s)</string>
 
-    <string name="welcome_text">Have to edit this</string>
+    <string name="welcome_text1">Look up the best recipes based on the content of your fridge!
+    Please enter one or more ingredients you have at home, separated by commas, and pick a recipe
+    you like by clicking on it. </string>
+
+    <string name="welcome_text2">This will guide you to the next screen with more information about
+    the recipe, including all the ingredients needed. If you don\'t have all of the ingredients
+    needed you can add them to your grocery list, with just one click!</string>
 
     <string name="explanation_details_recipe">Click on the link to visit the instructions for this
     recipe on the original publisher\'s website. Click on the ingredients you need to add them to
     your Grocery List</string>
+
+    <string name="explanation_grocery_list">Click on an item to check or uncheck it. Long click on
+    an item to remove it from your grocery list.</string>
 </resources>
