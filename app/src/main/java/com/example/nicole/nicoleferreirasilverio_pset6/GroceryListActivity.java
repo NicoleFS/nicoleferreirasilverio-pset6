@@ -14,6 +14,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Created by Nicole on 10-12-2016
+ * In this activity a list of needed ingredients will be
+ * shown. There is a possibility to check/uncheck ingredients
+ * as well as delete them from the list.
+ */
+
 public class GroceryListActivity extends AppCompatActivity {
 
     // initialise an ArrayList called groceryIngredients
@@ -38,6 +45,7 @@ public class GroceryListActivity extends AppCompatActivity {
         }
     }
 
+    // method to fill the ListView with ingredients
     public void setData(ArrayList<String> groceries){
 
         // fill groceryIngredients with the list given to setData

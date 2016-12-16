@@ -11,7 +11,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by Nicole on 12-12-2016.
+ *
+ * Created by Nicole on 12-12-2016
+ * This class will obtain data through the JSONObject obtained by the
+ * HttpRequestHelper. This data will be shown in a ListView in the
+ * MainActivity.
+ *
  */
 
 public class RecipeAsyncTask extends AsyncTask<String, Integer, String> {

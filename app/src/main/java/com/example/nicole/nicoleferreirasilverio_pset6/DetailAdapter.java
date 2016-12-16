@@ -12,9 +12,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * This is an adapter that puts strings in a listview.
- *
- * Created by Nicole on 13-12-2016.
+ * Created by Nicole on 13-12-2016
+ * This class is an ArrayAdapter that will fill a ListView with
+ * strings
  */
 
 public class DetailAdapter extends ArrayAdapter<String>{

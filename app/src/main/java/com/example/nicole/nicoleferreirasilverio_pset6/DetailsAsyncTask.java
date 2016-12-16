@@ -13,7 +13,11 @@ import java.util.List;
 
 /**
  *
- * Created by Nicole on 13-12-2016.
+ * Created by Nicole on 13-12-2016
+ * This class will obtain data through the JSONObject obtained by the
+ * HttpRequestIngredients. This data will be shown in a ListView in the
+ * RecipeDetailActivity.
+ *
  */
 
 public class DetailsAsyncTask extends AsyncTask<String, Integer, String> {
@@ -22,7 +26,7 @@ public class DetailsAsyncTask extends AsyncTask<String, Integer, String> {
     RecipeDetailActivity activity;
 
     // initialise an ArrayList called recipeIngredients
-    ArrayList<String> recipeIngredients = new ArrayList<String>();
+    ArrayList<String> recipeIngredients = new ArrayList<>();
 
     // constructor
     public DetailsAsyncTask(RecipeDetailActivity activity){

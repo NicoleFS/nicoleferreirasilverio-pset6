@@ -11,7 +11,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Nicole on 9-12-2016.
+ * Created by Nicole on 9-12-2016
+ * This class is an ArrayAdapter that will fill a ListView with
+ * the titles of the recipes
  */
 
 public class RecipeAdapter extends ArrayAdapter<RecipeData>{

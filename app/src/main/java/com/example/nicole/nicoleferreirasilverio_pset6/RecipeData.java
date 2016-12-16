@@ -2,6 +2,9 @@ package com.example.nicole.nicoleferreirasilverio_pset6;
 
 /**
  * Created by Nicole on 12-12-2016.
+ * This class is a custom data class for the recipes. Each recipe
+ * has a title, imageURL, recipeID and sourceURL, which will be
+ * displayed in different parts of the application.
  */
 
 public class RecipeData {

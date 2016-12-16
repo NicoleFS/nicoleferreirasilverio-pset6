@@ -12,6 +12,17 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Nicole on 9-12-2016.
+ * In this activity the user can enter one or more ingredients
+ * they want to cook with and let the app search for recipes with
+ * one or more of those ingredients. The collected data will be
+ * shown in a ListView and the user can select a recipe by clicking
+ * on it, which will redirect them to a page with more details
+ * about the chosen recipe. There is also a button to visit the
+ * user's grocery list or the login page.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     // initialise an ArrayList to save the recipedata in
@@ -24,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    // method to search for recipes including ingredient(s) the user entered
     public void searchRecipes(View view){
 
         // execute the AsyncTask with the right context and user input, given in the EditText
@@ -33,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         asyncTask.execute(userInput);
     }
 
+    // method to fill the ListView with data
     public void setData(ArrayList<RecipeData> recipedata){
 
         // fill foundRecipeList with the found recipes including their data
@@ -84,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // method to be redirected to the grocery list
     public void seeGroceryList(View view){
 
         // create an intent to go to the GroceryListActivity
@@ -93,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(goToGroceryList);
     }
 
+    // method to be redirected to the login page
     public void seeLoginPage(View view){
 
         Intent goToLogin = new Intent(this, LoginActivity.class);

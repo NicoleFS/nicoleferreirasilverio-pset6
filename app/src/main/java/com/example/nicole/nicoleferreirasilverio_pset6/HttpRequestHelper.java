@@ -9,6 +9,8 @@ import java.net.URL;
 
 /**
  * Created by Nicole on 9-12-2016.
+ * In this class data, recipes, will be requested through the
+ * food2fork API and returned.
  */
 
 public class HttpRequestHelper {
@@ -41,7 +43,6 @@ public class HttpRequestHelper {
             try {
                 //open connection, set request method
                 connection = (HttpURLConnection) url.openConnection();
-//                connection.setRequestMethod("GET");
 
                 // get response code
                 Integer responseCode = connection.getResponseCode();
@@ -55,7 +56,6 @@ public class HttpRequestHelper {
                     }
                 } else {
                     BufferedReader br = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-                    // communicate correct error, aan de hand van de error message die je krijgt
                 }
             } catch (IOException e) {
                 e.printStackTrace();

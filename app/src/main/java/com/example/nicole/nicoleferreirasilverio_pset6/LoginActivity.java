@@ -15,6 +15,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Created by Nicole on 16-12-2016
+ * In this activity users can log in or sign up with an e-mail
+ * address and password. If login/sign up is successful, the
+ * user will be redirected to the MainActivity
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
