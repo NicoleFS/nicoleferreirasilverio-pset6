@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "328719740323",
+    "firebase_url": "https://nicoleferreirasilverio-pset6.firebaseio.com",
+    "project_id": "nicoleferreirasilverio-pset6",
+    "storage_bucket": "nicoleferreirasilverio-pset6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328719740323:android:78921e0cb17f6b4c",
+        "android_client_info": {
+          "package_name": "com.example.nicole.nicoleferreirasilverio_pset6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328719740323-34cv2g323q2uo70rduq93aaiscocq25i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi7y-RjOd4oeqAdRI3K3PV0PLlXQFrJ74"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328719740323-34cv2g323q2uo70rduq93aaiscocq25i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

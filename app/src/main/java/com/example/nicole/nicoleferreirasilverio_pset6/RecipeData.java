@@ -19,42 +19,35 @@ public class RecipeData {
 
     }
 
-    // geef het recept een titel
+
     public void setTitle(String title){
         this.title = title;
     }
 
-    // geef het recept een URL van het plaatje van het gerecht
     public void setImageURL(String imageURL){
         this.imageURL = imageURL;
     }
 
-    // geef het recept een ID
     public void setRecipeID(String recipeID){
         this.recipeID = recipeID;
     }
 
-    // geef het recept een URL van de website waar het recept vandaan komt
     public void setSourceURL(String sourceURL){
         this.sourceURL = sourceURL;
     }
 
-    // vraag de titel op van het recept
     public String getTitle(){
         return title;
     }
 
-    // vraag de URL van het plaatje van het gerecht op
     public String getImageURL(){
         return imageURL;
     }
 
-    // vraag de ID van het recept op
     public String getRecipeID(){
         return recipeID;
     }
 
-    // vraag de URL van de website waar het recept vandaan komt op
     public String getSourceURL(){
         return sourceURL;
     }

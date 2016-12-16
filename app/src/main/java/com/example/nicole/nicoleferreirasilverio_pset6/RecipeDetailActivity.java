@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -76,8 +77,16 @@ public class RecipeDetailActivity extends AppCompatActivity {
                 // maak een string van het item waar op geklikt is
                 String chosenIngredient = parent.getItemAtPosition(position).toString();
 
-                // voeg deze string toe aan de lijst chosenIngredients
-                chosenIngredients.add(chosenIngredient);
+                if (chosenIngredients.contains(chosenIngredient)){
+                    Toast.makeText(RecipeDetailActivity.this, "This ingredient is already in your grocery list", Toast.LENGTH_SHORT).show();
+                }
+
+                else{
+                    // voeg deze string toe aan de lijst chosenIngredients
+                    chosenIngredients.add(chosenIngredient);
+                }
+
+
             }
         });
     }
@@ -98,6 +107,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         Uri uriUrl = Uri.parse(sourceRecipe);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
+
     }
 
 

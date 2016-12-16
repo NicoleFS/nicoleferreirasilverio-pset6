@@ -21,7 +21,7 @@ public class DetailsAsyncTask extends AsyncTask<String, Integer, String> {
     Context context;
     RecipeDetailActivity activity;
 
-    // initialiseer een ArrayList genaamd recipeIngredients
+    // initialise an ArrayList called recipeIngredients
     ArrayList<String> recipeIngredients = new ArrayList<String>();
 
     // constructor
@@ -44,7 +44,7 @@ public class DetailsAsyncTask extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String result){
         super.onPostExecute(result);
 
-        // checken of result uberhaupt iets heeft binnengekregen
+        // check if there was any data found
         if (result.length() == 0){
             Toast.makeText(context, "No data found", Toast.LENGTH_LONG).show();
         }
@@ -53,21 +53,20 @@ public class DetailsAsyncTask extends AsyncTask<String, Integer, String> {
             try {
                 JSONObject resultObj = new JSONObject(result);
 
-                // haal de JSONArray met ingredienten uit het JSONObject
+                // get the JSONArray with ingredients from the JSONObject recipe
                 JSONArray ingredients = resultObj.getJSONObject("recipe").getJSONArray("ingredients");
 
-                // haal elk ingredient uit de JSONArray, maak er een string van en voeg het toe aan
-                // de ArrayList recipeIngredients
+                // make a string from every ingredient from the JSONArray and add it to recipeIngredients
                 for (int i = 0; i < ingredients.length(); i++){
                     String ingredient = ingredients.getString(i);
-
                     recipeIngredients.add(ingredient);
                 }
 
             } catch (JSONException e){
                 e.printStackTrace();
             }
-            // vul de ListView in RecipeDetailActivity met de ingredienten
+
+            // fill the ListView in RecipeDetailActivity with the ingredients
             this.activity.setData(recipeIngredients);
         }
     }

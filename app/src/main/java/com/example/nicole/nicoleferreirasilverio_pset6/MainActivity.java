@@ -8,12 +8,13 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    // initialiseer een ArrayList om receptendata in op te slaan
+    // initialise an ArrayList to save the recipedata in
     ArrayList<RecipeData> foundRecipeList;
 
 
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchRecipes(View view){
-        // voer de AsyncTask uit met de juiste context en de meegegeven user input
+
+        // execute the AsyncTask with the right context and user input, given in the EditText
         EditText searchRecipe = (EditText) findViewById(R.id.editText);
         String userInput = searchRecipe.getText().toString();
         RecipeAsyncTask asyncTask = new RecipeAsyncTask(this);
@@ -33,46 +35,50 @@ public class MainActivity extends AppCompatActivity {
 
     public void setData(ArrayList<RecipeData> recipedata){
 
-        // vul foundRecipeList met de gevonden recepten (+ data)
+        // fill foundRecipeList with the found recipes including their data
         this.foundRecipeList = recipedata;
 
-        // maak een nieuwe adapter aan met de juiste attributen
+        // create a new adapter with the right attributes
         ListAdapter adapter = new RecipeAdapter(this, recipedata);
 
-        // zet de adapter op de listview om deze te vullen
+        // call the adapter on the ListView to fill it with data
         ListView recipeList = (ListView) findViewById(R.id.listView);
         recipeList.setAdapter(adapter);
 
-        // maak een onItemClickListener voor de elementen in de listview
+        // create an onItemClickListener for the elements in the ListView
         recipeList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 
-                // isoleer het recept waar op geklikt is
+                // isolate the recipe the user clicked on
                 RecipeData chosenRecipe = (RecipeData) parent.getItemAtPosition(position);
 
-                // vraag de ID op van het gekozen recept
+                // get the ID from the chosen recipe
                 String recipeId = chosenRecipe.getRecipeID();
 
-                // vraag de titel op van het gekozen recept
+                // get the title from the chosen recipe
                 String recipeTitle = chosenRecipe.getTitle();
 
-                // vraag de URL van de bron van het recept op
+                // get the source URL from the chosen recipe
                 String recipeSource = chosenRecipe.getSourceURL();
 
-                // vraag de URL van het plaatje van het gerecht op
+                // get the image URL from the chosen recipe
                 String imageURL = chosenRecipe.getImageURL();
 
-                // maak een intent aan om naar de volgende activity te gaan, waar details van het
-                // recept worden weergegeven
+                // create an intent to go to the RecipeDetailActivity, where details about the
+                // recipe will be shown
                 Intent goToRecipeDetail = new Intent(view.getContext(), RecipeDetailActivity.class);
 
-                // geef de ID, titel, URL van de bron en URL van het plaatje mee aan de volgende
-                // activity en ga naar de volgende activity
+                // show the user what recipe they chose
+                Toast.makeText(MainActivity.this, "You chose " + recipeTitle, Toast.LENGTH_SHORT).show();
+
+                // send the ID, title, source URL and image URL of the chosen recipe to the next activity
                 goToRecipeDetail.putExtra("recipeID", recipeId);
                 goToRecipeDetail.putExtra("imageURL", imageURL);
                 goToRecipeDetail.putExtra("recipeTitle", recipeTitle);
                 goToRecipeDetail.putExtra("recipeSource", recipeSource);
+
+                // go to RecipeDetailActivity
                 startActivity(goToRecipeDetail);
             }
         });
@@ -80,12 +86,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void seeGroceryList(View view){
 
-        // maak een intent aan om naar de volgende activity te gaan, waar het boodschappenlijstje
-        // wordt weergegeven
+        // create an intent to go to the GroceryListActivity
         Intent goToGroceryList = new Intent(this, GroceryListActivity.class);
 
-        // ga naar de volgende activity
+        // go to GroceryListActivity
         startActivity(goToGroceryList);
+    }
+
+    public void seeLoginPage(View view){
+
+        Intent goToLogin = new Intent(this, LoginActivity.class);
+
+        startActivity(goToLogin);
     }
 
 

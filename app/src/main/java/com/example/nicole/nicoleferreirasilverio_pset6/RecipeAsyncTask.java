@@ -27,7 +27,7 @@ public class RecipeAsyncTask extends AsyncTask<String, Integer, String> {
 
     // onPreExecute()
     protected void onPreExecute(){
-        Toast.makeText(context, "Getting data from server", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Getting data from server", Toast.LENGTH_SHORT).show();
     }
 
     // doInBackGround()
@@ -39,47 +39,49 @@ public class RecipeAsyncTask extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String result){
         super.onPostExecute(result);
 
-        // checken of result uberhaupt iets heeft binnengekregen
+        // check if there was any data found
         if (result.length() == 0){
             Toast.makeText(context, "No data found", Toast.LENGTH_LONG).show();
         }
         else{
 
-            // initialiseer een ArrayList met receptendata
+            // initialise an ArrayList with recipe data
             ArrayList<RecipeData> recipeDataArrayList = new ArrayList<>();
             try {
                 JSONObject resultObj = new JSONObject(result);
 
-                // haal de JSONArray met recepten uit het JSONObject met alle resultaten
+                // get the JSONArray with all the recipes including data
                 JSONArray recipes = resultObj.getJSONArray("recipes");
 
-                // voor alle elementen in de JSONArray met recepten
+                // for all the elements in the recipes JSONArray
                 for (int i = 0; i < recipes.length(); i++){
 
-                    // isoleer een recept, op plek i in de JSONArray met recepter
+                    // isolate a recipe, at position i in the JSONArray recipes
                     JSONObject recipe = recipes.getJSONObject(i);
 
-                    // haal de titel van het recept op
+                    // get the title of the recipe
                     String recipeTitle = recipe.getString("title");
 
-                    // haal de URL van het plaatje van het recept op
+                    // get the image URL of the recipe
                     String photoURL = recipe.getString("image_url");
 
-                    // haal de ID van het recept op
+                    // get the ID of the recipe
                     String recipeID = recipe.getString("recipe_id");
 
-                    // haal de URL van de bron van het recept op
+                    // get the source URL of the recipe
                     String instructionsURL = recipe.getString("source_url");
 
-                    // maak een nieuwe RecipeData aan met de opgehaalde attributen
+                    // create a new RecipeData element, recipeData, with the obtained attributes
                     RecipeData recipeData = new RecipeData(recipeTitle, photoURL, recipeID, instructionsURL);
 
-                    // voeg de recipeData toe aan de lijst met recepten inclusief alle data
+                    // add the recipeData to the list of recipes
                     recipeDataArrayList.add(recipeData);
                 }
             } catch (JSONException e){
                 e.printStackTrace();
             }
+
+            // fill the ListView in MainActivity with the recipes in recipeDataArrayList
             this.activity.setData(recipeDataArrayList);
         }
     }

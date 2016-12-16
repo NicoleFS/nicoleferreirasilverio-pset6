@@ -1,17 +1,22 @@
 package com.example.nicole.nicoleferreirasilverio_pset6;
 
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GroceryListActivity extends AppCompatActivity {
 
-    // initialiseer een ArrayList genaamd groceryIngredients
+    // initialise an ArrayList called groceryIngredients
     ArrayList<String> groceryIngredients;
 
     @Override
@@ -19,40 +24,73 @@ public class GroceryListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery_list);
 
-        // maak een nieuwe ArrayList aan genaamd neededIngredients
+        // create a new ArrayList called neededIngredients
         ArrayList<String> neededIngredients;
 
-        // check of de pagina is opgevraagd met of zonder data
+        // check if the page is requested with or without extra data
         if (getIntent().getExtras() != null) {
 
-            // vul neededIngredients met de ingredienten die nog nodig zijn en doorgegeven zijn via
-            // RecipeDetailActivity
+            // fill neededIngredients with the ingredients that were sent via RecipeDetailActivity
             neededIngredients = getIntent().getExtras().getStringArrayList("neededIngredients");
 
-            // vul de ListView met de benodigde ingredienten
+            // fill the ListView with the ingredients from neededIngredient
             this.setData(neededIngredients);
         }
     }
 
     public void setData(ArrayList<String> groceries){
 
-        // vul groceryIngredients met de lijst die wordt meegegeven aan setData
+        // fill groceryIngredients with the list given to setData
         this.groceryIngredients = groceries;
 
-        // maak een nieuwe adapter aan met de juiste attributen
+        // create a new adapter with the correct attributes
         ListAdapter adapter = new DetailAdapter(this, groceries);
 
-        // zet de adapter op de ListView om deze te vullen
+        // call the adapter on the ListView to fill it with data
         final ListView groceryList = (ListView) findViewById(R.id.groceries);
         groceryList.setAdapter(adapter);
 
-//        ingredientsList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-//                String chosenIngredient = parent.getItemAtPosition(position).toString();
-//                chosenIngredients.add(chosenIngredient);
-//            }
-//        });
+        // create an onItemClick listener for the ListView
+        groceryList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+
+
+                TextView chosen = (TextView) view.findViewById(android.R.id.text1);
+
+                // get the current color of the text in the TextView chosen
+                int intColor = chosen.getCurrentTextColor();
+
+                // change the color integer to a hexadecimal string
+                String hexColor = String.format("#%06X", (0xFFFFFF & intColor));
+
+                // if the color of the text is black, change to grey and otherwise
+                if (Objects.equals(hexColor, "#000000")){
+                    chosen.setTextColor(Color.parseColor("#D3D3D3"));
+
+                }
+                else{
+                    chosen.setTextColor(Color.parseColor("#000000"));
+                }
+
+
+            }
+        });
+
+        // create an onItemLongClickListener for the ListView
+        groceryList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
+
+                // if clicked on a TextView in the ListView, remove the data in that TextView from
+                // groceryIngredients
+                String ingredientChosen = parent.getItemAtPosition(position).toString();
+                groceryIngredients.remove(ingredientChosen);
+
+                // fill the ListView with the changed data
+                setData(groceryIngredients);
+                return true;
+            }
+        });
     }
 
 }

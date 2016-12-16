@@ -30,7 +30,7 @@ public class RecipeAdapter extends ArrayAdapter<RecipeData>{
         // get the title of the recipe
         String titleRecipe = getItem(position).getTitle();
 
-        // fill the textviews of the listview with the titles of the recipes
+        // fill the TextViews of the ListView with the titles of the recipes
         TextView listTitle = (TextView) theView.findViewById(android.R.id.text1);
         listTitle.setText(titleRecipe);
 

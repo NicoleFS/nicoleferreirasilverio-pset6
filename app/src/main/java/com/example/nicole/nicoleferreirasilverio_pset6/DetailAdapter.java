@@ -1,6 +1,7 @@
 package com.example.nicole.nicoleferreirasilverio_pset6;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,7 @@ public class DetailAdapter extends ArrayAdapter<String>{
             // get the ingredient
             String ingredient = getItem(position).toString();
 
-            // put it in the textview of the listview
+            // put it in the Textview of the Listview
             TextView listTitle = (TextView) theView.findViewById(android.R.id.text1);
             listTitle.setText(ingredient);
 
