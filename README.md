@@ -10,3 +10,9 @@ firebase, click a button to go to the grocery list, where needed ingredients wil
 the user to an activity which shows more details about the chosen recipe. In this activity the user can click a link to visit the 
 instructions on the original publisher's website and sees the ingredients needed in a list. The user can click on the ingredients
 they need to buy, to send these to the grocery list, where the user can check/uncheck and remove items from the grocery list.
+
+Screenshots:
+<img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001024.png" width="48">
+<img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001033.png" width="48">
+<img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001055.png" width="48">
+<img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001104.png" width="48">
