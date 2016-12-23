@@ -11,7 +11,7 @@ the user to an activity which shows more details about the chosen recipe. In thi
 instructions on the original publisher's website and sees the ingredients needed in a list. The user can click on the ingredients
 they need to buy, to send these to the grocery list, where the user can check/uncheck and remove items from the grocery list.
 
-Screenshots:
+Screenshots (click on the images to enlarge them):
 <img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001024.png" width="48">
 <img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001033.png" width="48">
 <img src="https://github.com/Snikkie/nicoleferreirasilverio-pset6/blob/master/Screenshot_20161217-001055.png" width="48">
